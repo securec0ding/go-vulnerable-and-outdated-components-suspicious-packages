@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://hunter2labs.s3.amazonaws.com/common.css">
+    <script src='https://hunter2labs.s3.amazonaws.com/common.js'></script>
+  </head>
+  <body>
+    <form enctype="multipart/form-data" method="POST">
+      <input type="file" name="zip" accept="application/zip" />
+      <input type="hidden" name="token" value="{{.}}" />
+      <button type="submit">Upload files</button>
+    </form>
+    {{ if .Files }}
+      <h3>Uploaded files:</h3>
+      <ul>
+        {{ range .Files }}
+          <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </body>
+</html>
